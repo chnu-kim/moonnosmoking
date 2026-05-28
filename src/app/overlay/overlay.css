@@ -1,0 +1,241 @@
+/* 문서희 금연 챌린지 - OBS 오버레이 스타일 */
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.overlay-container {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: var(--overlay-bg, rgba(15, 10, 30, 0.85));
+  border: 1px solid rgba(244, 114, 182, 0.3);
+  backdrop-filter: blur(8px);
+  min-width: 260px;
+  max-width: 320px;
+  font-family: var(--overlay-font, inherit);
+}
+
+/* --- 상단: 라벨 + 일차 --- */
+
+.day-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(249, 168, 212, 0.65);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.day-value {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--overlay-fg, #ffffff);
+  text-shadow:
+    0 0 20px rgba(236, 72, 153, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* --- 사이즈 변형 --- */
+
+.size-sm .day-value  { font-size: 27px; }
+.size-md .day-value  { font-size: 36px; }
+.size-lg .day-value  { font-size: 48px; }
+
+.size-sm .bn-num     { font-size: 60px; }
+.size-md .bn-num     { font-size: 80px; }
+.size-lg .bn-num     { font-size: 110px; }
+
+.size-sm .ms-day     { font-size: 30px; }
+.size-md .ms-day     { font-size: 40px; }
+.size-lg .ms-day     { font-size: 54px; }
+
+.size-sm .ol-main    { font-size: 11px; }
+.size-md .ol-main    { font-size: 14px; }
+.size-lg .ol-main    { font-size: 18px; }
+
+.size-sm .bo-label   { font-size: 10px; }
+.size-md .bo-label   { font-size: 12px; }
+.size-lg .bo-label   { font-size: 16px; }
+
+/* --- 진행률 바 --- */
+
+.overlay-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.overlay-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.overlay-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ec4899, #c084fc);
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 8px rgba(236, 72, 153, 0.5);
+}
+
+.overlay-progress-text {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* --- 상태별 변형 --- */
+
+.state-before .day-value {
+  text-shadow:
+    0 0 24px rgba(192, 132, 252, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.state-before {
+  border-color: rgba(192, 132, 252, 0.3);
+}
+
+/* ============================================================
+   템플릿: minimal-serif
+   ============================================================ */
+
+.tmpl-minimal-serif {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  background: var(--overlay-bg);
+  font-family: var(--overlay-font, 'Gowun Batang', serif);
+}
+
+.ms-day {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--overlay-fg, #ffffff);
+  letter-spacing: -0.02em;
+  text-shadow:
+    0 0 20px rgba(244, 114, 182, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* ============================================================
+   템플릿: big-number
+   ============================================================ */
+
+.tmpl-big-number {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--overlay-bg, rgba(15, 10, 30, 0.7));
+  backdrop-filter: blur(6px);
+}
+
+.bn-num {
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--overlay-fg, #ffffff);
+  letter-spacing: -0.04em;
+  text-shadow:
+    0 0 30px rgba(244, 114, 182, 0.5),
+    0 3px 8px rgba(0, 0, 0, 0.9);
+}
+
+.bn-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--overlay-fg, #ffffff);
+  opacity: 0.5;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   템플릿: one-line
+   ============================================================ */
+
+.tmpl-one-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--overlay-bg, rgba(15, 10, 30, 0.85));
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
+  height: 38px;
+}
+
+.ol-main {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--overlay-fg, #ffffff);
+  letter-spacing: 0.01em;
+}
+
+.ol-sep {
+  font-size: 14px;
+  color: var(--overlay-fg, #ffffff);
+  opacity: 0.35;
+}
+
+/* ============================================================
+   템플릿: bar-only
+   ============================================================ */
+
+.tmpl-bar-only {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 160px;
+  background: var(--overlay-bg);
+}
+
+.bo-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bo-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ec4899, #c084fc);
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 6px rgba(236, 72, 153, 0.5);
+}
+
+.bo-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--overlay-fg, #ffffff);
+  white-space: nowrap;
+}
+
+.bo-total {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--overlay-fg, #ffffff);
+  opacity: 0.4;
+  white-space: nowrap;
+}
